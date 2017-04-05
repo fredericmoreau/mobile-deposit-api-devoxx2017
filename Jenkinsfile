@@ -94,7 +94,7 @@ stage('Deploy to Prod') {
           
           # Install the Kubenetes secret key
           mkdir -p ~/.ssh
-          (cat ${KUBERNETES_SECRET_KEY}; echo '\n') > ~/.ssh/id_rsa
+          (cat "${KUBERNETES_SECRET_KEY}"; echo '\n') > ~/.ssh/id_rsa
 
           # Ask Azure CLI to install the Kubenetes credentials
           az acs kubernetes get-credentials -n ${env.k8s_name} -g ${env.k8s_resourceGroup}
